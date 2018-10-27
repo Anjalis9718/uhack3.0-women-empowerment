@@ -1,0 +1,377 @@
+{% extends "basic_app/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+{% if user.is_authenticated %}
+
+  <h3 style="font-family: 'Times New Roman', Times, serif; font-size: 40px;"> Welcome {{ user.username }}!!! </h3><br><br>
+<h2 style="float: left; clear: left; padding:40px; color:grey">  <img src= "{{ user.userprofileinfo.profile_pic.url }}" alt="profile_pic" style="width:150px;height:150px;"> </h2>
+<div style="padding:40px; background-color: white;font-family: Arial, Helvetica, sans-serif; border:black">
+<h5> Username : {{ user.username }} </h5>
+<h5> Email : {{ user.email }} </h5>
+<h5> Area_of_Interests : {{ user.userprofileinfo.Area_of_Interests }} </h5>
+<h5> Skills    : {{ user.userprofileinfo.Extra_Skills }} </h5>
+</div>
+<br>
+<br>
+
+<div style="padding:70px; background-color: white;font-family: Arial, Helvetica, sans-serif; border:black;">
+<form method="POST" action={% url 'skills_page' %}>
+{% csrf_token %}
+
+<label for="Area_of_Interests">Area of Interests:</label>
+<div style="padding:10px;">
+<input type="text" id="txtbox" name="Area_of_Interests"><br>
+</div>
+<label for="Extra_Skills"     >Skills:</label>
+<div style="padding:10px;">
+<input type="text" name="Extra_Skills"><br>
+</div>
+
+
+<button type='submit'>Add</button>
+</form>
+</div>
+{% else %}
+
+<div id="MagicCarousal" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#MagicCarousal" data-slide-to="0" class="active"></li>
+     <li data-target="#MagicCarousal" data-slide-to="1" ></li>
+      <li data-target="#MagicCarousal" data-slide-to="2" ></li>
+       <li data-target="#MagicCarousal" data-slide-to="3"></li>
+        <li data-target="#MagicCarousal" data-slide-to="4"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="{%static "images/img1.jpg" %}" alt="first">
+      <div class="carousel-caption">
+
+        <div id="header" class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 wow fadeInRight">
+        <h1>EMPOWERMENT OF WOMEN IN INDIA:</h1>
+        <p> The principle of gender equality is enshrined in the Indian Constitution
+in its Preamble, Fundamental Rights, Fundamental Duties and Directive
+Principles. The Constitution not only grants equality to women, but also
+empowers the State to adopt measures of positive discrimination in favour
+of women.</p>
+        <button class="btn btn-lg btn-success">learn more</button>
+      </div>
+      <div class="col-lg-6 col-md-6">
+      <img src="#">
+    </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    </div>
+
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{%static "images/img2.jpg"%}" alt="second">
+      <div class="carousel-caption">
+
+        <div id="header" class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 wow fadeInRight">
+        <h1>Naari Shakti</h1>
+        <p> The strength of chain is the strength of its weakest link. In a society, women are the weakest links, so that they may be strengthened for strengthening the society as a whole and that is possible only by empowering them.Empowerment is about change, choice and power</p>
+        <button class="btn btn-lg btn-success">learn more</button>
+      </div>
+      <div class="col-lg-6 col-md-6">
+      <img src="#">
+    </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    </div>
+
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{%static "images/img3.jpg" %}" alt="third">
+      <div class="carousel-caption">
+
+        <div id="header" class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 wow fadeInRight">
+        <h1>Power Of Women</h1>
+        <p> "Women should be uplifted for the upliftment of the nation, if a women is uplifted, society and nation is uplifted. there is no chance for the welfare of the world unless the condition of the women is improved. It is not possible for a bird to fly on one wing2"</p>
+        <button class="btn btn-lg btn-success">learn more</button>
+      </div>
+      <div class="col-lg-6 col-md-6">
+      <img src="#">
+    </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    </div>
+
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{%static "images/img4.jpg" %}" alt="forth">
+      <div class="carousel-caption">
+        <div id="header" class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 wow fadeInRight">
+        <h1>Indicators of Empowerment</h1>
+        <p>extent of sharing of domestic work by men;
+ extent to which a woman takes control
+of her reproductive functions and
+decides on family size;
+ extent to which a woman is able to
+decide where the income she has ear
+ned will be chanelled to;
+ feeling and expression of pride and
+value in her work;
+ self-confidence and self-esteem;
+ and ability to prevent violence.</p>
+        <button class="btn btn-lg btn-success">learn more</button>
+      </div>
+      <div class="col-lg-6 col-md-6">
+      <img src="#">
+    </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    </div>
+
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{%static "images/img5.jpg" %}" alt="fith">
+      <div class="carousel-caption">
+
+        <div id="header" class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 wow fadeInRight">
+        <h1>Avoiding the Mirage</h1>
+        <p>Empowerment is needed to break a
+number of real dichotomies affecting women:
+personal/collective, domestic/public, material/
+ideological. Women who are empowered
+should be able to stop the undesirable, to
+transform ongoing practices, and to create
+new visions.</p>
+        <button class="btn btn-lg btn-success">learn more</button>
+      </div>
+      <div class="col-lg-6 col-md-6">
+      <img src="#">
+    </div>
+    </div>
+  </div>
+</div>
+    </div>
+    </div>
+    <a class="carousel-control-prev" href="#MagicCarousal" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="sr-only">previous</span>
+    </a>
+    <a class="carousel-control-next" href="#MagicCarousal" role="button" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="sr-only">next</span>
+    </a>
+  </div>
+</div>
+
+<!-- End Slider -->
+
+<!-- 2nd Page -->
+
+
+
+<div id="heady" class="heady">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 wow fadeInLeft">
+        <h1>Women’s Empowerment in Rural Communities</h1>
+        <p> Communities are diverse—made of different groups with different preferences and
+goals, facing different constraints and responding differently to incentives. In most
+communities poor women are likely to be more disempowered than their male
+neighbors. Shashakt Naari often recognize this explicitly and, to increase the agency of
+disempowered people in these communities, they seek to make specific efforts to reach
+and empower women.</p>
+
+      </div>
+      <div class="col-lg-6 col-md-6 wow fadeInLeft">
+      <img class="rular" src="{%static "images/img25.jpg" %}">
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- End Of page -->
+
+
+<!-- status of women -->
+
+<div id="pricing" class="pricing">
+  <div class="container">
+     <h2>Status of Women in India</h2>
+      <p>A Quick Review of Facts on the Status of Women in India</p>
+    <div class="row">
+
+      <div class="col-lg-3 col-md-3 wow fadeInDown">
+        <div class="packages">
+          <h4>Economic empowerment</h4>
+          <img src="{%static "images/img21.jpg"%}">
+          <hr>
+          <p> An increase in female labour force participation
+             or a reduction in the gap between women's
+             and men's labour force participation,
+              result in faster economic growth.</p>
+          <button class="btn btn-success">learn more</button>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3 col-md-3 wow fadeInDown">
+        <div class="packages">
+          <h4>Leadership & political role</h4>
+          <img src="{%static "images/img22.jpg" %}">
+          <hr>
+          <p>From the local to global level, women's leadership
+            and political participation.In the political
+             empowerment arena ,India has scored strong,
+            being ranked 9th.</p>
+       <button class="btn btn-success">learn more</button>
+       </div>
+      </div>
+
+
+      <div class="col-lg-3 col-md-3 wow fadeInDown">
+        <div class="packages">
+          <h4>Ending violence against women</h4>
+         <img src="{%static "images/img23.jpg" %}">
+          <hr>
+          <p>It is estimated that 35% to 70% of women worldwide
+          have experienced either physical or sexual
+          intimate partner violence or sexual violence
+          by a non-patner at some point in their lives</p>
+       <button class="btn btn-success">learn more</button>
+       </div>
+      </div>
+
+
+      <div class="col-lg-3 col-md-3 wow fadeInDown">
+        <div class="packages">
+          <h4>Humanitarian action</h4>
+          <img src="{%static "images/img24.jpg" %}">
+          <hr>
+         <p>
+          Approximately 136 million people need humanitarian assistance and protection,
+         including an estimated 5 million pregnant women, young women and girls and reproductive age</p>
+       <button class="btn btn-success">learn more</button>
+       </div>
+      </div>
+
+     </div>
+    </div>
+  </div>
+  <!-- end status of women -->
+
+    <!-- team -->
+  <div id="team" class="team">
+    <div class="container">
+      <h2>Meet our family</h2>
+        <p>A few characteristics that are great to have if you are eager to volunteer for women's rights and empowerment:</p>
+      <div class="row">
+
+        <div class="col-lg-3 col-md-3 wow fadeInLeft">
+          <img src="{%static "images/img31.jpg" %}" class="img-circle">
+          <h4>name</h4>
+          <b>cerfdasgf qedgi</b>
+          <p>A few characteristics that are great to have if you are eager to volunteer for women's rights and empowerment:</p>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+         <div class="col-lg-3 col-md-3 wow fadeInLeft">
+          <img src="{%static "images/img32.jpg"%}" class="{%static "images/img-circle" %}">
+          <h4>name</h4>
+          <b>cerfdasgf qedgi</b>
+          <p>A few characteristics that are great to have if you are eager to volunteer for women's rights and empowerment:</p>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+         <div class="col-lg-3 col-md-3 wow fadeInLeft">
+          <img src="{%static "images/img33.jpg" %}" class="img-circle">
+          <h4>name</h4>
+          <b>cerfdasgf qedgi</b>
+          <p>A few characteristics that are great to have if you are eager to volunteer for women's rights and empowerment:</p>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+         <div class="col-lg-3 col-md-3 wow fadeInLeft">
+          <img src="{%static "images/img34.jpg" %}" class="img-circle">
+          <h4>name</h4>
+          <b>cerfdasgf qedgi</b>
+          <p>A few characteristics that are great to have if you are eager to volunteer for women's rights and empowerment:</p>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- end -->
+
+<!-- trusted -->
+
+<div id="contact" class="contact">
+  <div class="container">
+          <h2>Trusted by</h2>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6 wow flipInX">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1"><i class="fas fa-user fa-2x" aria-hidden="true"></i></span>
+          <input type="text" class="form-control"  placeholder="Full Nmae" name="">
+        </div>
+
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1"><i class="fas fa-envelope fa-2x"></i></span>
+          <input type="text" class="form-control"  placeholder="Email Address" name="">
+        </div>
+
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1"><i class="fas fa-phone fa-2x"></i></i></span>
+          <input type="text" class="form-control"  placeholder="Phone Number" name="">
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6 wow flipInX">
+        <div class="input-group">`
+          <textarea name="" id="" cols="80" rows="6" class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-lg">Submit Your Message</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<!-- end -->
+{% endif %}
+
+
+
+{% endblock %}

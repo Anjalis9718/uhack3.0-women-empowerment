@@ -1,0 +1,30 @@
+{% extends 'basic_app/base.html' %}
+{% block body_block %}
+
+<div style="text-align: center;">
+      <h1  >Login</h1>
+</div>
+
+        <form class="form-2" method="post" action="{% url 'basic_app:user_login' %}">
+          <p class="field">
+          {% csrf_token %}
+          {# A more "HTML" way of creating the login form#}
+          <label for="username">Username:</label>
+          <input type="text" name="username" placeholder="Username">
+          <i class="icon-user icon-large"></i>
+          </p>
+          <p class="field">
+          <label for="password">Password:</label>
+          <input type="password" name="password" placeholder="Password">
+          <i class="icon-lock icon-large"></i>
+        </p>
+        	<p class="submit">
+          <!--<input type="submit" name="" value="Login">-->
+          	<button type="submit" name="submit" value="Login"><i class="btn btn-success">LOGIN</i></button>
+          </p>
+        </form>
+
+
+
+
+{% endblock %}

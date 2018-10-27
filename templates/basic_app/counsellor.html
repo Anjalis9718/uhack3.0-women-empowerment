@@ -1,0 +1,38 @@
+{% extends "basic_app/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+<div class="jumbotron">
+  <div style="font-family: 'Times New Roman', Times, serif; font-size: 40px;">
+<h1> Counsellors </h1>
+</div>
+<div style="padding:20px;background-color:grey;color:brown">
+<p> A list counsellors are provided whom you can contact for your help.They are very experienced and have great success rate.Thet will definitely help you to overcome your problem.
+    Thank You!!!</p>
+  </div><br><br>
+<div class="djangotwo">
+
+  {% if list %}
+  <table>
+    <thead>
+      <div style="padding:5px;background-color:grey;">
+      <th>NAME</th>
+      <th>DEALS_REGARDING</th>
+      <th>CONTACT_NO</th>
+      <th>EMAIL</th>
+    </div>
+    </thead>
+    {% for coun in list %}
+    <tr>
+      <td>{{ coun.NAME }}</td>
+      <td>{{ coun.DEALS_REGARDING }}</td>
+      <td>{{ coun.CONTACT_NO }}</td>
+      <td><a href="mailto:{{ coun.Email}}">{{ coun.EMAIL }}</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p>no counsellor </p>
+  {% endif %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "basic_app/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+
+  <form class="form-2",action="{% url 'basic_app:rateorg' %}" method="POST">
+    {% csrf_token %}
+    <label for="Username">Username:</label>
+    <input type="text" name="username" style="margin-left:70px;width:350px"><br>
+    <label for="Organization_name">Organization name:</label>
+    <input type="text" name="Organization_name" style="margin-left:6px;width:350px"><br>
+    <label for="Problem_faced">Problem faced:</label>
+    <input type="text" name="Problem_faced" style="margin-left:40px;width:350px"><br>
+    <label for="Suggestion">Suggestion:</label>
+    <input type="text" name="Suggestion" style="margin-left:63px;width:350px"><br>
+
+    <button type="submit" name="" value="submit" ><i class="btn btn-success">Submit</i></button>
+  </form>
+
+{% endblock %}

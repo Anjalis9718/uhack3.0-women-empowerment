@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title><img src="{%static "images/welogo.jpg" %}" id="imt">Shashkt</title>
+    <link rel="stylesheet"  href="{%static "css/mystyle.css" %}">
+    <link rel="stylesheet"  href="{%static "css/animate.min.css" %}">
+
+    <style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color:#f5f5f5;}
+</style>
+
+  </head>
+
+<!-- navbar -->
+
+
+      <div style="font-family:'Arial', Helvetica, sans-serif;
+
+      font-style: italic; text-align: left;background-color:black; color:white;padding:15px;">
+      <h1 >ShashaktNaari</h1>
+    </div>
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href=""><img id="im" src="{%static "images/welogo.jpg" %}"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+
+
+        {% if user.is_authenticated %}
+
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item active" >
+            <a class="nav-link" id="right" href="{% url 'index' %}">Your Profile</a></li>
+          <li class="nav-item active" >
+            <a class="nav-link" id="right" href="http://localhost/sashaktnaari/wordpress/wp-login.php?redirect_to=http%3A%2F%2Flocalhost%2Fsashaktnaari%2Fwordpress%2F">Find Your Group/Share your problem</a></li>
+            <li class="nav-item active" >
+              <a class="nav-link" id="right" href="{% url 'basic_app:counsellors' %}">Get Counselled</a></li>
+              <li class="nav-item active" >
+                <a class="nav-link" id="right" href="{% url 'basic_app:rateorg' %}">Rate Your Organization</a></li>
+                <li class="nav-item active" >
+                  <a class="nav-link" id="right" href="{% url 'basic_app:ngos' %}">NGO's</a></li>
+
+
+          </ul>
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item" >
+              <a class="nav-link" id="search-txt" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+
+        {% else %}
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
+            </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                About us
+              </a>
+              <div class="dropdown-menu" id="down-item" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" id="down" href="{% url 'who_we_are' %}">Who we are</a>
+                <a class="dropdown-item" id="down" href="#">Why we work</a>
+                <a class="dropdown-item" id="down" href="#">Partners</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Our Work
+              </a>
+              <div class="dropdown-menu" id="down-item" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" id="down" href="#">Find your group</a>
+                <a class="dropdown-item" id="down" href="#">Get councilled</a>
+                <a class="dropdown-item" id="down" href="#">Share us problems</a>
+                <a class="dropdown-item" id="down" href="#">Rate Your Current Organization</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Media
+              </a>
+              <div class="dropdown-menu" id="down-item" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" id="down" href="#">News</a>
+              </div>
+              </li>
+              <ul class="navbar-nav navbar-right">
+                <li class="nav-item" >
+                  <a class="nav-link" id="right" href="{% url 'basic_app:register' %}">Register</a></li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" id="search-txt" type="search" placeholder="Search" aria-label="Search">
+                  <i class="fas fa-search " id="search-btn"></i>
+              </form>
+
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item" >
+            <a class="nav-link" id="right" href="{% url 'basic_app:user_login' %}">Login</a>
+          </li>
+        </ul>
+
+        {% endif %}
+
+    </ul>
+
+
+
+  </div>
+</nav>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="{%static "js/wow.min.js" %}"></script>
+<script>new WOW().init();</script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <script type="text/javascript" src="{%static "js/jquey-3.3.1.min.js" %}"></script>
+    <script>
+      $(document).ready(function(){
+
+
+
+
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+    {% block body_block %}
+
+    {% endblock %}
+<br>
+<br>
+<br>
+
+
+<div id="footer" class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 wow zoomIn">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-home"></i>111 Main Street, Delhi 110054</p>
+        <p><i class="fas fa-envelope"></i><a href="mailto:{{ ng.EMAIL}}">anjalis9718@gmail.com</a></p>
+        <p><i class="fas fa-phone"></i>+011 2222 2222</p>
+        <p><i class="fas fa-globe-asia"></i>www.sn.com</p>
+      </div>
+      <div class="col-lg-4 col-md-4 wow zoomIn">
+        <h4>About</h4>
+        <p><i class="far fa-square"></i>About Us</p>
+        <p><i class="far fa-square"></i>Privacy</p>
+        <p><i class="far fa-square"></i>Term &condition</p>
+
+      </div>
+      <div class="col-lg-4 col-md-4 wow zoomIn">
+        <h4>Stay in touch</h4>
+        <i class="fab fa-facebook-square"></i>
+        <i class="fab fa-twitter-square"></i>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-youtube-square"></i>
+        <i class="fab fa-github-square"></i><br>
+        <input type="email" placeholder="Subscribe For Updates" name=""><button class="btn btn-success">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  </body>
+  </html>

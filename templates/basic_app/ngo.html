@@ -1,0 +1,41 @@
+{% extends "basic_app/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+<div class="jumbotron">
+  <div style="font-family: 'Times New Roman', Times, serif; font-size: 40px;">
+<h1> NGO </h1>
+</div>
+<div style="padding:20px;background-color:grey;color:brown">
+
+  <p> A list of NGO's are provided whom you can contact if you need for your  help. They are well known organisations who will definitely help you to overcome your problem.
+    Thank You!!!</p>
+  </div><br><br>
+<div class="djangotwo">
+  {% if ngo %}
+  <table>
+    <thead>
+      <div style="padding:5px;background-color:grey;">
+      <th>NAME</th>
+      <th>ADDRESS</th>
+      <th>WEBPAGE</th>
+      <th>CONTACT_NO</th>
+      <th>EMAIL</th>
+    </div>
+    </thead>
+    {% for ng in ngo %}
+    <tr>
+      <td>{{ ng.NAME }}</td>
+      <td>{{ ng.ADDRESS }}</td>
+      <td><a href="{{ ng.WEBPAGE }}">{{ ng.WEBPAGE }}</a></td>
+      <td>{{ ng.CONTACT_NO }}</td>
+
+      <td><a href="mailto:{{ ng.EMAIL}}">{{ ng.EMAIL }}</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p>no counsellor </p>
+  {% endif %}
+</div>
+</div>
+{% endblock %}
